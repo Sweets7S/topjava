@@ -5,11 +5,12 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 // Sweets
 public class MealsDAOimpl implements MealsDAO{
     private static final List<Meal> meals = new CopyOnWriteArrayList<>();
-
+    private static final AtomicInteger count = new AtomicInteger();
     static {
         meals.add(new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500));
         meals.add(new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000));
@@ -24,5 +25,19 @@ public class MealsDAOimpl implements MealsDAO{
     @Override
     public List<Meal> getMeals() {
         return meals;
+    }
+
+    @Override
+    public void deleteMeal(int id) {
+        meals.remove(getMealForId(id));
+    }
+
+    public static synchronized int updateId() {
+        return count.incrementAndGet();
+    }
+
+    @Override
+    public Meal getMealForId(int id) {
+        return meals.stream().filter(meal -> meal.getId() == id).findFirst().orElse(null);
     }
 }

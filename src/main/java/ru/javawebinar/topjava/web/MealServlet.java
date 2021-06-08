@@ -16,11 +16,11 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class MealServlet extends HttpServlet {
     private static final Logger log = getLogger(MealServlet.class);
-    MealsDAO mealsDAO;
+    private MealsDAO mealsDAO;
 
     @Override
     public void init() throws ServletException {
-       mealsDAO = new MealsDAOimpl();
+       mealsDAO = (MealsDAO) getServletContext().getAttribute("mealsDAO");
     }
 
     @Override

@@ -7,5 +7,9 @@ import java.util.List;
 public interface MealsDAO {
     public static final int CALORIES_PER_DAY = 2500;
 
-    public List<Meal> getMeals();
+    List<Meal> getMeals();
+
+    void deleteMeal(int id);
+
+    Meal getMealForId(int id);
 }
