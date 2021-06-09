@@ -30,9 +30,6 @@
         <td> <form method="get" action="create">
             <label>
                 <input type="number" hidden name="id" value="${meal.id}"/>
-<%--                <input hidden name="description" value="${meal.description}"/>--%>
-<%--                <input type="number" hidden name="calories" value="${meal.calories}"/>--%>
-<%--                <input type="datetime-local" hidden name="date" value="${meal.dateTime}"/>--%>
                 <input type="submit" value="Редактировать"/>
             </label>
         </form> </td>
@@ -50,6 +47,5 @@
 <form method="get" action="create">
     <button>Create Meal</button>
 </form>
-
 </body>
 </html>

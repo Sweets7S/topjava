@@ -5,16 +5,25 @@
 </head>
 <body>
 <form method="post" action="create">
-    <label>
-        Date: <input type="datetime-local" name="date" value="${meal.dateTime}"/>
-        <br/>
-        Description: <input name="description" value="${meal.description}"/>
-        <br/>
-        Calories: <input type="number" name="calories" value="${meal.calories}"/>
-        <br>
-        <input type="number" hidden name="id" value="${meal.id}"/>
-        <input type="submit" value="Создать"/>
-    </label>
+    <table width="100%" cellspacing="0" cellpadding="4">
+        <tr>
+            <td align="right" width="100">Date</td> <td><input type="datetime-local" name="date" value="${meal.dateTime}"/></td>
+        </tr>
+        <tr>
+        <td align="right" width="100">Description</td> <td><input name="description" value="${meal.description}"/></td>
+        </tr>
+        <tr>
+            <td align="right" width="100">Calories</td> <td><input type="number" name="calories" value="${meal.calories}"/></td>
+        </tr>
+        <tr>
+            <td align="right" width="100"><input type="number" hidden name="id" value="${meal.id}"/>
+                <input type="submit" value="Создать/Обновить"/>
+                <form action="meals" target="_blank">
+                    <button>Отмена</button>
+                </form>
+            <td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
