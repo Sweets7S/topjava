@@ -26,6 +26,8 @@ public class MealServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("forward to meals");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         request.setAttribute("meals", MealsUtil.filteredByStreams(mealsDAO.getMeals(), LocalTime.MIN, LocalTime.MAX, MealsDAO.CALORIES_PER_DAY));
         request.getRequestDispatcher("/meals.jsp").forward(request, response);
     }

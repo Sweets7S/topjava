@@ -12,4 +12,8 @@ public interface MealsDAO {
     void deleteMeal(int id);
 
     Meal getMealForId(int id);
+
+    void createMeal(String date, String description, String calories);
+
+    void updateMeal(String date, String description, String calories, String id);
 }

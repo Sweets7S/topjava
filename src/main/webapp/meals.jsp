@@ -27,17 +27,29 @@
         <td> <a><fmt:formatDate value="${dateObject}" pattern="yyyy-MM-dd HH:mm" /></a> </td>
         <td> <a><c:out value="${meal.description}"/></a> </td>
         <td> <a><c:out value="${meal.calories}"/></a> </td>
-        <td> <a>Update</a> </td>
+        <td> <form method="get" action="create">
+            <label>
+                <input type="number" hidden name="id" value="${meal.id}"/>
+<%--                <input hidden name="description" value="${meal.description}"/>--%>
+<%--                <input type="number" hidden name="calories" value="${meal.calories}"/>--%>
+<%--                <input type="datetime-local" hidden name="date" value="${meal.dateTime}"/>--%>
+                <input type="submit" value="Редактировать"/>
+            </label>
+        </form> </td>
         <td> <form method="post" action="delete">
             <label>
             <input type="number" hidden name="id" value="${meal.id}"/>
-            <input type="submit" name="delete" value="Удалить"/>
+            <input type="submit" value="Удалить"/>
             </label>
         </form> </td>
     </tr>
 </c:forEach>
     </tbody>
 </table>
+<hr/>
+<form method="get" action="create">
+    <button>Create Meal</button>
+</form>
 
 </body>
 </html>

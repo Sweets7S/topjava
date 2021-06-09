@@ -40,4 +40,16 @@ public class MealsDAOimpl implements MealsDAO{
     public Meal getMealForId(int id) {
         return meals.stream().filter(meal -> meal.getId() == id).findFirst().orElse(null);
     }
+
+    @Override
+    public void createMeal(String date, String description, String calories) {
+        meals.add(new Meal(LocalDateTime.parse(date), description, Integer.parseInt(calories)));
+    }
+
+    @Override
+    public void updateMeal(String date, String description, String calories, String id) {
+        getMealForId(Integer.parseInt(id)).setDateTime(LocalDateTime.parse(date));
+        getMealForId(Integer.parseInt(id)).setDescription(description);
+        getMealForId(Integer.parseInt(id)).setCalories(Integer.parseInt(calories));
+    }
 }

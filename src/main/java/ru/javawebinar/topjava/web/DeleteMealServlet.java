@@ -14,7 +14,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 // Sweets
 public class DeleteMealServlet extends HttpServlet {
-    private static final Logger log = getLogger(MealServlet.class);
+    private static final Logger log = getLogger(DeleteMealServlet.class);
     private MealsDAO mealsDAO;
 
     @Override
@@ -25,7 +25,8 @@ public class DeleteMealServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("delete meal");
-        System.out.println(req.getParameter("id"));
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         mealsDAO.deleteMeal(Integer.parseInt(req.getParameter("id")));
         resp.sendRedirect("meals");
     }
