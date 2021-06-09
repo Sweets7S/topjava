@@ -18,12 +18,12 @@
         <tr>
             <td align="right" width="100"><input type="number" hidden name="id" value="${meal.id}"/>
                 <input type="submit" value="Создать/Обновить"/>
-                <form action="meals" target="_blank">
-                    <button>Отмена</button>
-                </form>
             <td>
         </tr>
     </table>
+</form>
+<form action="meals" target="_blank">
+    <button>Отмена</button>
 </form>
 </body>
 </html>

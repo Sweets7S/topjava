@@ -48,8 +48,9 @@ public class MealsDAOimpl implements MealsDAO{
 
     @Override
     public void updateMeal(String date, String description, String calories, String id) {
-        getMealForId(Integer.parseInt(id)).setDateTime(LocalDateTime.parse(date));
-        getMealForId(Integer.parseInt(id)).setDescription(description);
-        getMealForId(Integer.parseInt(id)).setCalories(Integer.parseInt(calories));
+        Meal meal = getMealForId(Integer.parseInt(id));
+        meal.setDateTime(LocalDateTime.parse(date));
+        meal.setDescription(description);
+        meal.setCalories(Integer.parseInt(calories));
     }
 }
