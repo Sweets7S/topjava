@@ -25,5 +25,6 @@
 <form action="meals" target="_blank">
     <button>Отмена</button>
 </form>
+<!--     <button onclick="window.history.back()" type="button">Cancel</button> -->
 </body>
 </html>
