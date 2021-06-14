@@ -3,11 +3,10 @@ package ru.javawebinar.topjava.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Meal extends AbstractBaseEntity{
 
-//    private final Integer userId;
+    private int userId;
 
     private final LocalDateTime dateTime;
 
@@ -26,13 +25,13 @@ public class Meal extends AbstractBaseEntity{
         this.calories = calories;
     }
 
-//    public Meal(Integer id, Integer userId, LocalDateTime dateTime, String description, int calories) {
-//        super(id);
-//        this.userId = userId;
-//        this.dateTime = dateTime;
-//        this.description = description;
-//        this.calories = calories;
-//    }
+    public Meal(Integer id, Integer userId, LocalDateTime dateTime, String description, int calories) {
+        super(id);
+        this.userId = userId;
+        this.dateTime = dateTime;
+        this.description = description;
+        this.calories = calories;
+    }
 
     public Integer getId() {
         return id;
@@ -64,6 +63,14 @@ public class Meal extends AbstractBaseEntity{
 
     public boolean isNew() {
         return id == null;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     @Override
