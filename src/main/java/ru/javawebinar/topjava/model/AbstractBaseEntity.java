@@ -1,7 +1,10 @@
 package ru.javawebinar.topjava.model;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class AbstractBaseEntity {
     protected Integer id;
+
 
     protected AbstractBaseEntity(Integer id) {
         this.id = id;
