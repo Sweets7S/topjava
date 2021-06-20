@@ -19,6 +19,7 @@
 </head>
 <body>
 <table>
+    <tr><td>Фильтр</td></tr>
     <form method="get" action="meals">
         <tr>
             <td>

@@ -77,7 +77,6 @@ public class MealServlet extends HttpServlet {
             default:
                 log.info("getAll");
                 String a = request.getParameter("filtered");
-
                 if(a == null) {
                     request.setAttribute("meals", mealRestController.getAll());
                 } else if(a.equals("filtered")) {
