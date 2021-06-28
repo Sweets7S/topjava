@@ -1,19 +1,19 @@
 package ru.javawebinar.topjava;
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.model.User;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static ru.javawebinar.topjava.model.AbstractBaseEntity.START_SEQ;
 // Sweets
 public class MealTestData {
-    public static final int NOT_FOUND = 10;
-    public static AtomicInteger mealId = new AtomicInteger(START_SEQ);
+    public static final int NOT_FOUND = 20;
+    public static AtomicInteger mealId = new AtomicInteger(START_SEQ + 2);
+    public static final int USER_ID = START_SEQ;
+    public static final int ADMIN_ID = START_SEQ + 1;
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     public static final Meal ONE_MEAL = new Meal(mealId.getAndIncrement(), LocalDateTime.parse("2020-01-30 10:00", formatter), "Завтрак", 500);
