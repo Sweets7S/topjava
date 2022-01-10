@@ -1,5 +1,29 @@
 # TopJava Release Notes
 
+### Topjava 24
+- migrate to JDK 17
+- добавил логирование в `RootController`
+- в `AbstractServiceTest` популирование БД делаю после теста (`executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD`). Если последние тесты на сервисы портят БД, тесты на контроллеры могут упасть
+- в `ActiveDbProfileResolver` добавил парсинг `profiles`
+- добавил `@QueryHint HINT_PASS_DISTINCT_THROUGH` в реализацию Data JPA
+
+### Topjava 23
+- migrate to JDK 16
+- в новой spring-data-jpa `getOne` заменили на `getById`
+- в UserUtil#prepareToSave убрал проверку пароля на `hasText`. На UI поле проверяется на `@NotBlank`
+- `ProfileRestController#register` делаю по правилам REST (POST без "/register")
+- css стили `data-...` сделал [low-case через дефисы](https://stackoverflow.com/questions/36176474/548473)
+- `TestMatcher` переименовал в `MatcherFactory`
+- Для Swagger UI пометил `AuthorizedUser` аннотацией `@ApiIgnore` 
+
+### Topjava 22
+ - очистка пароля `AuthorizedUser#userTo`
+ - заменил `@SafeHtml`, который удалили из `hibernate.validator` на [Jsoup.clean](https://stackoverflow.com/a/68888601/548473)
+ - перенес запрет на обновление admin/user в `UserService`
+ - проверку email на уникальность для update с `id=null` в теле запроса сделал на основе анализа `HttpServletRequest.getRequestURI()`
+ - проверку класса в `classpath` в `Profiles#getActiveDbProfile` делаю на `org.springframework.util.ClassUtils#isPresent`
+ - удалил `type="text/javascript"`
+ 
 ### Topjava 21
 - **добавили документирование REST API: Swagger**
 - мигрировали на JDK 15 и используем текстовые блоки
